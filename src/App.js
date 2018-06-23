@@ -13,18 +13,25 @@ class App extends Component {
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
+        pdf.addImage(imgData, 'png', 0, 0);
         pdf.save("download.pdf");
       });
-    console.log('I like');
   }
 
   render() {
     return (
-      <div className="App">
-        <div id="divToPrint">
+      <div>
+        <div id="divToPrint" className="toPrint">
           <h1>Hello PDF</h1>
+          <div className="para-holder">
+            <p className='para'>
+              Lorem Ipsum is simply dummy text of the printing and 
+            </p>
+            <p className='para p1-high'>
+              Lorem Ipsum is simply dummy text of the printing and 
+              typesetting industry. 
+            </p>
+          </div>
         </div>
         <div className="mb5">
           <button onClick={this.printDocument}>Print</button>

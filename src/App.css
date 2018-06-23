@@ -22,6 +22,27 @@
   font-size: large;
 }
 
+.toPrint {
+  /* border: 2px solid red; */
+  padding: 20px;
+}
+
+.para-holder {
+  display: flex;
+  flex-direction: column;
+  
+}
+.para {
+  display: flex;
+  padding: 5px;
+  text-align: left;
+}
+
+.p1-high {
+  color: yellow;
+  background-color: thistle;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
