@@ -40,7 +40,10 @@ class App extends Component {
           <h1>Hello PDF</h1>
           <div className="para-holder">
             <p className={`para ${this.state.lineThrough}`}>
+              Lorem Ipsum is simply dummy text of the printing and
+              <br />
               Lorem Ipsum is simply dummy text of the printing and 
+              typesetting industry.
             </p>
             <p className={`para ${this.state.highlight}`}>
               Lorem Ipsum is simply dummy text of the printing and 
