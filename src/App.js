@@ -3,8 +3,16 @@ import './App.css';
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Button from '@material-ui/core/Button';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      highlight: 'p1-high'
+    }
+  }
 
 
   printDocument = () => {
@@ -27,14 +35,34 @@ class App extends Component {
             <p className='para'>
               Lorem Ipsum is simply dummy text of the printing and 
             </p>
-            <p className='para p1-high'>
+            <p className={`para ${this.state.highlight}`}>
               Lorem Ipsum is simply dummy text of the printing and 
               typesetting industry. 
             </p>
           </div>
         </div>
-        <div className="mb5">
-          <button onClick={this.printDocument}>Print</button>
+        <div className="buttons">
+          <div className='button'>
+            <Button variant="contained" 
+                    onClick={this.printDocument}
+                    >
+              Print pdf
+            </Button>
+          </div>
+          <div className='button'>
+            <Button variant="contained" 
+                    color="primary"
+                    onClick={() => {
+                      if(this.state.highlight === 'p1-high'){
+                        this.setState({highlight: ''})
+                      }else{
+                        this.setState({highlight: 'p1-high'})
+                      }
+                    }}
+                    >
+              Highlight
+            </Button>
+          </div>
         </div>
       </div>
     );
