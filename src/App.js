@@ -4,13 +4,16 @@ import './App.css';
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      highlight: 'p1-high'
+      highlight: 'p1-high',
+      textVal: '',
+      lineThrough: ''
     }
   }
 
@@ -26,20 +29,33 @@ class App extends Component {
       });
   }
 
+  textVal = (e) => {
+    this.setState({ textVal: e.target.value })
+  }
+
   render() {
     return (
       <div>
         <div id="divToPrint" className="toPrint">
           <h1>Hello PDF</h1>
           <div className="para-holder">
-            <p className='para'>
+            <p className={`para ${this.state.lineThrough}`}>
               Lorem Ipsum is simply dummy text of the printing and 
             </p>
             <p className={`para ${this.state.highlight}`}>
               Lorem Ipsum is simply dummy text of the printing and 
               typesetting industry. 
             </p>
+            <p className='para in-txt'>{this.state.textVal}</p>
           </div>
+        </div>
+        <div className='text-field'>
+          <TextField
+            label='Write Something here'
+            multiline
+            onChange={this.textVal}
+            value={this.state.textVal}
+          />
         </div>
         <div className="buttons">
           <div className='button'>
@@ -61,6 +77,20 @@ class App extends Component {
                     }}
                     >
               Highlight
+            </Button>
+          </div>
+          <div className='button'>
+            <Button variant="contained" 
+                    color="secondary"
+                    onClick={() => {
+                      if(this.state.lineThrough === 'line-through') {
+                        this.setState({lineThrough: ''})
+                      }else{
+                        this.setState({lineThrough: 'line-through'})
+                      }
+                    }}
+            >
+              Line Cross
             </Button>
           </div>
         </div>

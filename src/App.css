@@ -24,6 +24,7 @@
 
 .toPrint {
   /* border: 2px solid red; */
+  margin: 30px;
   padding: 20px;
 }
 
@@ -51,6 +52,19 @@
 
 .button {
   padding: 5px;
+}
+
+.text-field {
+  display: flex;
+  justify-content: center;
+}
+
+.in-txt {
+  color: slategray;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
 
 @keyframes App-logo-spin {
